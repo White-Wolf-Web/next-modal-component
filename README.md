@@ -1,34 +1,94 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next Modal Component
 
-## Getting Started
+Ce composant offre une modal simple, flexible et hautement personnalisable pour vos applications Next.js.
 
-First, run the development server:
+## Installation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+npm install [next-modal-component] --save
+
+## Utilisation
+
+Pour utiliser le composant Modal, importez-le simplement dans votre fichier et utilisez-le comme n'importe quel autre composant React :
+
+import Modal from "[next-modal-component]";
+
+```javascript
+<Modal
+    isOpen={isOpen}
+    onClose={handleClose}
+    title="Votre titre ici"
+    content="Votre contenu ici"
+    textColor="La couleur du texte choisi"
+	modalWidth="largeur du modal voulu"
+    backgroundColor="couleur arriere plan"
+    borderColor="couleur de la bordure"
+    titleFontSize="Taille des caractères du titre"
+    contentFontSize="Taille des caractères du paragraphe"
+	content="le contenu souhaité"
+	contentAlign="gauche centre droite"
+    closeBtnStyle={}   />
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Props
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+**Le composant Modal accepte les props suivantes :**
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. isOpen (booléen, requis) : Indique si la modal doit être affichée ou non.
 
-## Learn More
+2. onClose (fonction, requis) : Fonction qui sera appelée lorsque l'utilisateur tente de fermer la modal.
 
-To learn more about Next.js, take a look at the following resources:
+3. content (élément JSX/string, requis) : Le contenu à afficher dans la modal.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. title (string, requis) : Le titre à afficher en haut de la modal.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+5. textColor (string, optionnel, valeur par défaut: "black") : La couleur du texte dans la modal.
 
-## Deploy on Vercel
+6. backgroundColor (string, optionnel, valeur par défaut: "white") : La couleur d'arrière-plan de la modal.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+7. borderColor (string, optionnel, valeur par défaut: "red") : La couleur de la bordure de la modal.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+8. titleFontSize (string, optionnel, valeur par défaut: "24px") : La taille de la police du titre.
+
+9. contentFontSize (string, optionnel, valeur par défaut: "16px") : La taille de la police du contenu.
+
+10. contentAlign (string, optionnel, valeur par défaut: "left") : L'alignement du texte du contenu. Les valeurs acceptées sont "left", "right", "center", et "justify".
+
+11. modalWidth (string, optionnel, valeur par défaut: "70%") : La largeur de la modal.
+
+12. customStyles (objet, optionnel) : Styles personnalisés pour la modal. Les sous-objets acceptés sont:
+
+-   header: Styles appliqués à l'en-tête de la modal.
+-   content: Styles appliqués au contenu de la modal.
+-   overlay: Styles appliqués à l'arrière-plan/overlay de la modal.
+-   modal: Styles appliqués à la modal elle-même.
+-   closeBtnStyle (objet, optionnel) : Styles appliqués au bouton de fermeture de la modal.
+
+## Personnalisation
+
+Vous pouvez personnaliser la modal en passant des styles spécifiques via les props. Par exemple :
+
+```javascript
+<Modal
+	isOpen={isConfirmationOpen}
+	onClose={() => setConfirmationOpen(false)}
+	title="Employee Created!"
+	textColor="red"
+	modalWidth="50%"
+	backgroundColor="black"
+	borderColor="#0cc7ba"
+	titleFontSize="30px"
+	contentFontSize="18px"
+	content=""
+	contentAlign="center"
+	closeBtnStyle={{ color: "white", fontSize: "20px" }}
+	customStyles={{
+		header: { padding: "20px" },
+		content: { fontWeight: "bold" },
+		overlay: { backgroundColor: "rgba(0, 0, 0, 0.5)" },
+		modal: { boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)" },
+	}}
+/>
+```
+
+## Licence
+MIT
