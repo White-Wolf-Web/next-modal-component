@@ -92,3 +92,5 @@ Vous pouvez personnaliser la modal en passant des styles spécifiques via les pr
 
 ## Licence
 MIT
+
+![Exemple](/img/modal.gif)

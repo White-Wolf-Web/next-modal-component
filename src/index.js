@@ -1,23 +1,23 @@
 import React from "react";
 
-export default function Modal({
-	isOpen,
+export default function Modal({   // Ce sont tous des PROPS
+	isOpen,                       
 	onClose,
 	content,
 	title,
-	textColor = "black",
-	backgroundColor = "white",
-	borderColor = "red",
-	titleFontSize = "24px",
-	contentFontSize = "16px",
-	contentAlign = "left",
-	customStyles = {},
-	closeBtnStyle = {},
-	modalWidth = "70%",
+	textColor = "black",          // Couleur du texte par défaut
+	backgroundColor = "white",    // Couleur d'arrière-plan par défaut
+	borderColor = "red",          // Couleur de la bordure par défaut
+	titleFontSize = "24px",       // Taille de la police du titre par défaut
+	contentFontSize = "16px",     // Taille de la police du contenu par défaut
+	contentAlign = "left",        // Alignement du contenu par défaut
+	customStyles = {},            // Styles personnalisés
+	closeBtnStyle = {},           // Styles du bouton de fermeture
+	modalWidth = "70%",           // Largeur de la fenêtre modale par défaut
 }) {
 	if (!isOpen) return null;
 
-	const overlayDefaultStyle = {
+	const overlayDefaultStyle = {      // Styles par défaut pour loverlay qui recouvre toute la page
 		position: 'fixed',
 		top: 0,
 		left: 0,
@@ -29,7 +29,7 @@ export default function Modal({
 		backgroundColor: 'rgba(0, 0, 0, 0.6)',
 	};
 
-	const modalDefaultStyle = {
+	const modalDefaultStyle = {        // Styles par défaut pour la fenêtre modale
 		backgroundColor: 'black',
 		borderRadius: '10px',
 		padding: '20px',
@@ -37,14 +37,14 @@ export default function Modal({
 		maxWidth: '500px',
 	};
 
-	const headerDefaultStyle = {
+	const headerDefaultStyle = {       // Styles par défaut pour l'en-tête de la fenêtre modale
 		position: 'relative',
 		display: 'flex',
 		justifyContent: 'space-between',
 		alignItems: 'center',
 	};
 
-	const closeButtonDefaultStyle = {
+	const closeButtonDefaultStyle = {  // Styles par défaut pour le bouton de fermeture
 		position: 'absolute',
 		top: '5px',
 		right: '5px',
@@ -57,7 +57,7 @@ export default function Modal({
 		outline: 'none',
 	};
 
-	const headerStyles = {
+	const headerStyles = {             // Fusion des styles par défaut et personnalisés pour l'en-tête
 		color: textColor,
 		backgroundColor: backgroundColor,
 		fontSize: titleFontSize,
@@ -65,19 +65,19 @@ export default function Modal({
 		...customStyles.header,
 	};
 
-	const contentStyles = {
+	const contentStyles = {            // Fusion des styles par défaut et personnalisés pour le contenu
 		color: textColor,
 		fontSize: contentFontSize,
 		textAlign: contentAlign,
 		...customStyles.content,
 	};
 
-	const overlayStyles = {
+	const overlayStyles = {            // Fusion des styles par défaut et personnalisés pour le contenu
 		...overlayDefaultStyle,
 		...customStyles.overlay,
 	};
 
-	const modalStyles = {
+	const modalStyles = {              // Fusion des styles par défaut et personnalisés pour la modale
 		...modalDefaultStyle,
 		width: modalWidth,
 		border: `1px solid ${borderColor}`,

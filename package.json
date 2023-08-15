@@ -1,6 +1,6 @@
 {
   "name": "next-modal-component",
-  "version": "1.0.8",
+  "version": "1.0.11",
   "description": "Composant modal pour Next.js",
   "main": "lib/index.js",
     "scripts": {
